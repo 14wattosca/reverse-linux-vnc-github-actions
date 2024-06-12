@@ -26,8 +26,8 @@ cp ./resources/xstartup $HOME/.vnc/xstartup.turbovnc
 echo $VNC_PASSWORD | vncpasswd -f > $HOME/.vnc/passwd
 chmod 0600 $HOME/.vnc/passwd
 #Start noVNC
-cd /etc/ssl ; openssl req -x509 -nodes -newkey rsa:2048 -keyout novnc.pem -out novnc.pem -days 365
-chmod 644 novnc.pem
+sudo openssl req -x509 -nodes -newkey rsa:2048 -keyout /etc/ssl/novnc.pem -out /etc/ssl/novnc.pem -days 365
+sudo chmod 644 novnc.pem
 websockify -D --web=/usr/share/novnc/ --cert=/etc/ssl/novnc.pem 6080 localhost:5901
 #sudo systemctl start xrdp
 #sudo usermod --password $VNC_PASSWORD runner
