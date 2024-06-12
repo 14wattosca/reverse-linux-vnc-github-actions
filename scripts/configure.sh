@@ -32,7 +32,7 @@ websockify -D --web=/usr/share/novnc/ 6080 localhost:5901
 
 # Fifth and last, set up auth token from argument
 ./ngrok authtoken $NGROK_AUTH_TOKEN
-echo "version: \"2"\
+echo "version: "\""2"\""
 authtoken: $NGROK_AUTH_TOKEN
 tunnels:
   first:
