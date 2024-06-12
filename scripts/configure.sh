@@ -25,9 +25,10 @@ mkdir $HOME/.vnc
 cp ./resources/xstartup $HOME/.vnc/xstartup.turbovnc
 echo $VNC_PASSWORD | vncpasswd -f > $HOME/.vnc/passwd
 chmod 0600 $HOME/.vnc/passwd
-#Start noVNC
+#Start xrdp and change password
 #websockify -D --web=/usr/share/novnc/ 6080 localhost:5901
 sudo systemctl start xrdp
+sudo usermod --password $VNC_PASSWORD runner
 
 # Fifth and last, set up auth token from argument
 ./ngrok authtoken $NGROK_AUTH_TOKEN
